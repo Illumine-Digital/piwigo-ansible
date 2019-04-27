@@ -1,0 +1,3 @@
+site_name: piwigo
+efs_mount: /mnt/efs
+efs_folder: "{{efs_mount}}/{{site_name}}"

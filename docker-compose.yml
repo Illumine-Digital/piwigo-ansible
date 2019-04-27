@@ -1,0 +1,8 @@
+version: "3"
+services:
+  aws:
+    build: .
+    image: amazonlinux
+    label: aws
+    volumes:
+      - ./:

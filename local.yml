@@ -1,0 +1,8 @@
+---
+- name: setup for piwigo
+  hosts: "{{host_name | default ('localhost')}}"
+  remote_user: ec2_user
+  become: true
+  roles:
+    - piwigo
+...
