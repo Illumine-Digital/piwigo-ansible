@@ -1,5 +1,5 @@
 - name: gather ec2 facts
-  action: ec2_facts
+  action: ec2_metadata_facts
   ignore_errors: yes
   tags:
    - always
