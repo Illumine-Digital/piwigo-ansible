@@ -10,9 +10,7 @@
   file:
     path: "{{ efs_folder }}/_data"
     state: directory
-    mode: 0644
-    owner: nginx
-    group: nginx
+    mode: 0777
 
 
 - name: create galleries directory
@@ -44,3 +42,6 @@
   template:
     src: database.j2.php
     destination: "{{ efs_folder }}/piwigo/local/config/database.inc.php"
+    mode: 0644
+    owner: ec2-user
+    group: ec2-user
