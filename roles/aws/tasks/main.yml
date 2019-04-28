@@ -3,3 +3,23 @@
   ignore_errors: yes
   tags:
    - always
+
+
+- block:
+  - name: connect efs drive
+    yum: name=nfs-utils state=present
+
+  - name: create efs mount directory
+    file: path={{efs_mount}} state=directory
+
+  - name: mount efs
+    mount:
+      name: "{{efs_mount}}"
+      src: "{{ansible_ec2_placement_availability_zone}}.{{efs_id}}.efs.{{ansible_ec2_placement_region}}.amazonaws.com:/"
+      fstype: nfs4
+      opts: nfsvers=4.1,rsize=1048576,wsize=1048576,hard,timeo=600,retrans=2
+      state: mounted
+
+  when: efs_id is defined
+  tags:
+   - always
