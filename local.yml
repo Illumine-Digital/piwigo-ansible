@@ -4,5 +4,6 @@
   remote_user: ec2_user
   become: true
   roles:
+    - aws
     - piwigo
 ...
