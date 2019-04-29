@@ -15,13 +15,13 @@
 
 - name: create galleries directory
   file:
-    path: "{{ efs_folder }}/piwigo/galleries"
+    path: "{{ efs_folder }}/galleries"
     state: directory
     mode: 0777
 
 - name: create local directory
   file:
-    path: "{{ efs_folder }}/piwigo/local/config"
+    path: "{{ efs_folder }}/local/config"
     state: directory
     mode: 0644
     owner: ec2-user
@@ -29,20 +29,20 @@
 
 - name: create plugins directory
   file:
-    path: "{{ efs_folder }}/piwigo/plugins"
+    path: "{{ efs_folder }}/plugins"
     state: directory
     mode: 0777
 
 - name: create upload directory
   file:
-    path: "{{ efs_folder }}/piwigo/upload"
+    path: "{{ efs_folder }}/upload"
     state: directory
     mode: 0777
 
 - name: create database config
   template:
     src: database.j2.php
-    dest: "{{ efs_folder }}/piwigo/local/config/database.inc.php"
+    dest: "{{ efs_folder }}/local/config/database.inc.php"
     mode: 0644
     owner: ec2-user
     group: ec2-user
